@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simon</title>
+  
+  <!-- Goole Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="simon.css">
+
+</head>
+
+<body>
+
+  <div class="return">
+    <a href="simon.html">Reset</a>
+  </div>
+
+  <div class="heading">
+    <h1 id="title">Press any Key to Start</h1>
+    <h3 id="subtitle">Press any Key to Restart.</h3>
+  </div>
+
+  <div class="game-box">
+    <div class="simon-unit">
+      <div type="button" id="red" class="btn red"></div>
+      <div type="button" id="green" class="btn green"></div>
+      <div type="button" id="blue" class="btn blue"></div>
+      <div type="button" id="yellow" class="btn yellow"></div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+      <h3 id="level-title" class="stats">Level: </h3>
+      <h3 id="highscore" class="stats">Best: </h3>
+  </div>
+
+        
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="simon.js"></script>
+
+</body>
+
+</html>
