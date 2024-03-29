@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll</title>
+
+    <link rel="stylesheet" href="diceroll.css">
+</head>
+
+<body>
+
+        <!-- 
+        TODO:
+        1. Replace die numbers with images (style)
+        2. format calculate text to be prettier
+        3. roll random value for each die in pool for total
+        -->
+
+        <div class="title">
+            <h1>Dice Roll</h1>
+        </div>
+
+        <div class="main">
+            <div class="dicebox">
+                <h2>Click to remove dice</h2>
+                <div class="active">
+
+                    <div class="dice" onclick="removeDice(1)">
+                        <h1 id="1"></h1>
+                    </div>
+                    <div class="dice2" onclick="removeDice(2)">
+                        <h1 id="2"></h1>
+                    </div>
+                    <div class="dice" onclick="removeDice(3)">
+                        <h1 id="3"></h1>
+                    </div>
+                    <div class="dice2" onclick="removeDice(4)">
+                        <h1 id="4"></h1>
+                    </div>
+                    <div class="dice2" onclick="removeDice(5)">
+                        <h1 id="5"></h1>
+                    </div>
+                    <div class="dice" onclick="removeDice(6)">
+                        <h1 id="6"></h1>
+                    </div>
+                    <div class="dice2" onclick="removeDice(7)">
+                        <h1 id="7"></h1>
+                    </div>
+                    <div class="dice" onclick="removeDice(8)">
+                        <h1 id="8"></h1>
+                    </div>
+
+                </div>
+                <h2><a href="diceroll.html">Reset</a></h2>
+            </div>
+            <div class="results" onclick="calculate()">
+                <h2>Click to roll:</h2>
+                <h2 id="workings"></h2>
+                <h1 id="result"></h1>
+            </div>
+        </div>
+
+        <div class="tray">
+            <h2>Click to add dice</h2>
+            <div class="reserve">
+                <div class="dice" onclick="addDice(4)">
+                    <h1>4</h1>
+                </div>
+                <div class="dice2" onclick="addDice(6)">
+                    <h1>6</h1>
+                </div>
+                <div class="dice" onclick="addDice(8)">
+                    <h1>8</h1>
+                </div>
+                <div class="dice2" onclick="addDice(12)">
+                    <h1>12</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Javascript -->
+        <script src="diceroll.js"></script>
+
+</body>
+
+</html>

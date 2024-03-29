@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+    height: 100vh;
+    text-align: center;
+}
+h1{
+    margin: 0;
+    padding: 1rem;
+}
+h2{
+    margin: 0;
+    padding: 1rem;
+}
+.title {
+    text-align: center;
+    background-color: dodgerblue;
+    height: 15%;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main{
+    background-color: darkgray;
+    height: 65%;
+    display: flex;
+}
+.dicebox{
+    width:60%;
+    background-color: green;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+.active{
+    height: 40%;
+    display: grid;
+    aspect-ratio: 2 / 1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+.active:hover{
+    cursor: pointer;
+}     
+.results{
+    width: 40%;
+    background-color: beige;
+    text-align: center;
+}
+#workings{
+    font-size: 3rem;
+}
+#result{
+    font-size: 10rem;
+}
+.results:hover{
+    cursor: pointer;
+}
+.tray{
+    height: 20%;
+    background-color: darkred;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.reserve{
+    height: 65%;
+    display: grid;
+    aspect-ratio: 4 / 1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: (1, 1fr);
+}
+.dice{
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dice:hover{
+    cursor: pointer;
+}
+.dice2{
+    background-color: #7D945D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dice2:hover{
+    cursor: pointer;
+}

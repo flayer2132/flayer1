@@ -108,6 +108,7 @@ body{
 }
 .mbox{
     max-width: 49%;
+    margin-bottom: 1.5rem;
 }
 .mbox:hover{
     cursor: pointer;
@@ -154,8 +155,14 @@ body{
 }
 .bigbox{
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: rgb(28,28,28);
+}
+@media screen and (min-width: 900px) {
+    .bigbox{
+        flex-direction: row;
+    }
 }
 .bigbox:hover{
     outline: 2px solid rgb(5,122,240);
@@ -163,10 +170,20 @@ body{
 }
 .textbox{
     padding: 5%;
-    width: 40%;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .textbox{
+        width: 40%
+    }
 }
 .imgbox{
-    width: 60%;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .imgbox{
+        width: 60%;
+    }
 }
 .blogimage{
     object-fit: cover;
@@ -180,9 +197,16 @@ body{
 }
 .blogbox{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     margin: 5% 0%;
     background-color: rgb(28,28,28);
+}
+@media screen and (min-width: 900px) {
+    .blogbox{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
 }
 .postimage{
     object-fit: cover;
@@ -190,11 +214,45 @@ body{
     height: 100%;
 }
 .fimgbox{
-    width: 50%;
+    position: relative;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .fimgbox{
+        width: 50%;
+    }
+}
+.left-img-text{
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    padding: 0.5% 4% 0.5% 1%;
+    /* background-color: rgb(5,122,240); */
+    background-color: blue;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+}
+.left-img-text p{
+    margin: 0%;
+}
+.right-img-text{
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    padding: 0.5% 1% 0.5% 5%;
+    background-color: blue;
+    clip-path: polygon(7% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.right-img-text p{
+    margin: 0%;
 }
 .ftextbox{
     padding: 2%;
-    width: 50%;
+    width: 100%;
+}
+@media screen and (min-width: 900px) {
+    .ftextbox{
+        width: 50%;
+    }
 }
 .ftextbox p{
     color: rgb(149,152,155);
@@ -204,8 +262,13 @@ body{
 
 /* Misc */
 .title{
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
+}
+@media screen and (min-width: 700px) {
+    .title{
+        font-size: 3rem;
+    }
 }
 .subtitle{
     color: rgb(5,122,240);
@@ -231,6 +294,10 @@ body{
    font-size: 2rem;
    margin-top: 1rem;
 }
+.title3{
+    font-size: 2rem;
+    margin: 0;
+ }
 .btn2{
     color: rgb(232,232,232);
     border-color: rgb(5,122,240);

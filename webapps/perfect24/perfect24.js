@@ -1,19 +1,34 @@
 
 //a prime number is any whole number greater than 1 that is only evenly divisibly by itself and 1
+//a perfect number is any whole number that is equal to the sum total of its divisors
 
-var num = 0; //number to check if prime
-var max = 30; //maximum number to check for prime
+var num = 0; //current number to check
+var max = 1; //maximum number to check
 
-start();
+
+//clear page of previous results
+function clear(){
+    document.getElementById("method").innerHTML = "";
+    document.getElementById("prime").innerHTML = "";
+    document.getElementById("respri").innerHTML = "";
+    document.getElementById("perfect").innerHTML = "";
+    document.getElementById("resper").innerHTML = "";
+}
+
 
 //run primecalc for each even number up to the max specified
 function start(){
-    $("#subtitle").append(" - (Maximum "+ max +")");
+    clear();
+    max = document.getElementById("maximum").value;
+    document.getElementById("method").innerHTML = "Calculating Prime and Perfect numbers up to "+ max +". Please wait...";
+    document.getElementById("prime").innerHTML = "Prime numbers:";
+    document.getElementById("perfect").innerHTML = "Perfect numbers:";
     for(var i = 1; i <= max; i++){
         num = i;
     primeCalc(num);
     }
 }
+
 
 //determine if number is prime
 //if true, print number to new line
@@ -44,7 +59,7 @@ function primeCalc(num) {
 
     //if num is prime, print num
     if (pri.length == 2){
-        $("#result").append(num + " ");
+        $("#respri").append(num + " ");
     }
     
     //check if num is perfect, using discovered divisors
@@ -62,7 +77,7 @@ function perfectCalc(div, prime){
     
     //if perfect found, print perfect
     if(prime * 2 == per){
-        $("#perfect").append(num + " ");
+        $("#resper").append(num + " ");
     }
     console.log("per: " + per);
 }

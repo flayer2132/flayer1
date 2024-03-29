@@ -13,9 +13,22 @@
 <body>
     
   <h2>Perfect24</h2>
-  <h3 id="subtitle">Calculate Prime and Perfect Numbers</h3>
-  <p id="result">Prime numbers: </p>
-  <p id="perfect">Perfect numbers: </p>
+  <h3>Calculate Prime and Perfect Numbers</h3>
+  
+  <p>Please enter a number to calculate up to:</p>
+  
+  <input type="text" id="maximum" size="10" placeholder="1" autofocus >
+  <button type="button" onclick="start()">Start!</button>
+
+  <p><b>WARNING</b>: calculating large numbers can take a very long time</p>
+  
+  <p id="method"></p>
+
+  <p id="prime"></p>
+  <p id="respri"></p>
+
+  <p id="perfect"></p>
+  <p id="resper"></p>
 
 
   <!-- jQuery script -->
@@ -23,6 +36,5 @@
 
   <!-- prime script -->
   <script src="perfect24.js"></script>
-
-
+  
 </body>
