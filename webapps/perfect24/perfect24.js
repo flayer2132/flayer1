@@ -3,16 +3,24 @@
 //a perfect number is any whole number that is equal to the sum total of its divisors
 
 var num = 0; //current number to check
-var max = 1; //maximum number to check
+var max = 0; //maximum number to check
 
+//wait for document to be ready
+//add click handler for start button
+$(document).ready(function() {
+    $("#start").click(function(){
+        clear();
+        start();
+    }); 
+});
 
 //clear page of previous results
 function clear(){
     document.getElementById("method").innerHTML = "";
     document.getElementById("prime").innerHTML = "";
-    document.getElementById("respri").innerHTML = "";
+    document.getElementById("prires").innerHTML = "";
     document.getElementById("perfect").innerHTML = "";
-    document.getElementById("resper").innerHTML = "";
+    document.getElementById("perres").innerHTML = "";
 }
 
 
@@ -20,13 +28,24 @@ function clear(){
 function start(){
     clear();
     max = document.getElementById("maximum").value;
-    document.getElementById("method").innerHTML = "Calculating Prime and Perfect numbers up to "+ max +". Please wait...";
     document.getElementById("prime").innerHTML = "Prime numbers:";
     document.getElementById("perfect").innerHTML = "Perfect numbers:";
-    for(var i = 1; i <= max; i++){
-        num = i;
-    primeCalc(num);
+    
+    if (max <= 1000) {
+        document.getElementById("method").innerHTML = "Calculating Prime and Perfect numbers up to "+ max +":";
+        for(var i = 1; i <= max; i++){
+            num = i;
+        primeCalc(num);
+        }
     }
+    else {
+        document.getElementById("method").innerHTML = "Calculating Prime and Perfect numbers up to "+ 1000 +":";
+        for(var i = 1; i <= 1000; i++){
+            num = i;
+        primeCalc(num);
+        }
+    }
+
 }
 
 
@@ -59,7 +78,7 @@ function primeCalc(num) {
 
     //if num is prime, print num
     if (pri.length == 2){
-        $("#respri").append(num + " ");
+        $("#prires").append(num + " ");
     }
     
     //check if num is perfect, using discovered divisors
@@ -77,7 +96,7 @@ function perfectCalc(div, prime){
     
     //if perfect found, print perfect
     if(prime * 2 == per){
-        $("#resper").append(num + " ");
+        $("#perres").append(num + " ");
     }
     console.log("per: " + per);
 }
