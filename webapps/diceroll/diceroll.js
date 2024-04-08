@@ -50,22 +50,24 @@ function reprint(){
 }
 
 function calculate(){
-    var workings = pool.toString(); //show pool
+    var res = []; //result for the throw
     
     //show die roll
     let x = 0; //each roll
-    let roll = 0; //toll total
+    let roll = 0; //roll total
+
     if (pool.length > 0) {
         pool.forEach((die) => {
             x = Math.floor((Math.random() * die) + 1);
             roll = roll + x;
-            console.log("this " + x);
+            console.log("this roll" + x);
+            res.push(x);
         });
+        var workings = res.toString(); //show all results
+        document.getElementById("workings").innerHTML = workings;
     }
 
     console.log("total roll: " + roll);
-
     console.log(total);
-    document.getElementById("workings").innerHTML = workings;
     document.getElementById("result").innerHTML = roll;
 }

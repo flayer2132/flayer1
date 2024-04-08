@@ -5,32 +5,49 @@ body{
 }
 h1{
     margin: 0;
-    padding: 1rem;
+    padding: 0;
 }
 h2{
     margin: 0;
-    padding: 1rem;
+    padding: 0;
 }
 .title {
+    height: 10%;
     text-align: center;
     background-color: dodgerblue;
-    height: 15%;
+    flex-wrap: wrap;
     font-size: x-large;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+@media only screen and (orientation: portrait) {
+    .main {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: stretch;
+    }
+    .dicebox{
+        height: 40%;
+        width: 100%;
+        flex-grow: 1;
+    }
+    .results{ 
+        height: 40%;
+        width: 100%;
+        flex-grow: 1;
+    }
+  }
 .main{
-    background-color: darkgray;
-    height: 65%;
+    height: 90%;
     display: flex;
 }
 .dicebox{
-    width:60%;
+    flex-grow: 6;
     background-color: green;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 .active{
@@ -39,37 +56,38 @@ h2{
     aspect-ratio: 2 / 1;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    border: 2px solid;
 }
 .active:hover{
     cursor: pointer;
 }     
 .results{
-    width: 40%;
+    flex-grow: 4;
     background-color: beige;
     text-align: center;
-}
-#workings{
-    font-size: 3rem;
-}
-#result{
-    font-size: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .results:hover{
     cursor: pointer;
 }
+#result{
+    font-size: 15vh;
+}
 .tray{
-    height: 20%;
-    background-color: darkred;
+    height: 18%;
     text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 .reserve{
-    height: 65%;
+    height: 100%;
     display: grid;
-    aspect-ratio: 4 / 1;
-    grid-template-columns: repeat(4, 1fr);
+    aspect-ratio: 5 / 1;
+    grid-template-columns: repeat(5, 1fr);
     grid-template-rows: (1, 1fr);
 }
 .dice{

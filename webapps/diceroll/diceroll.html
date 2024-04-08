@@ -10,14 +10,13 @@
 
 <body>
 
-        <!-- 
-        TODO:
-        1. Replace die numbers with images (style)
-        2. format calculate text to be prettier
-        3. roll random value for each die in pool for total
-        -->
+
+        <!-- TODO1. replace die numbers with images (style) -->
+        <!-- TODO2. remove checkerboard background on dice boxes -->
+
 
         <div class="title">
+            <h3><a href="diceroll.html">Reset</a></h3>
             <h1>Dice Roll</h1>
         </div>
 
@@ -25,7 +24,6 @@
             <div class="dicebox">
                 <h2>Click to remove dice</h2>
                 <div class="active">
-
                     <div class="dice" onclick="removeDice(1)">
                         <h1 id="1"></h1>
                     </div>
@@ -50,38 +48,42 @@
                     <div class="dice" onclick="removeDice(8)">
                         <h1 id="8"></h1>
                     </div>
-
                 </div>
-                <h2><a href="diceroll.html">Reset</a></h2>
+
+                <h2>Click to add dice</h2>
+                <div class="tray">
+                    <div class="reserve">
+                        <div class="dice" onclick="addDice(4)">
+                            <h1>4</h1>
+                        </div>
+                        <div class="dice2" onclick="addDice(6)">
+                            <h1>6</h1>
+                        </div>
+                        <div class="dice" onclick="addDice(8)">
+                            <h1>8</h1>
+                        </div>
+                        <div class="dice2" onclick="addDice(10)">
+                            <h1>10</h1>
+                        </div>
+                        <div class="dice" onclick="addDice(12)">
+                            <h1>12</h1>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="results" onclick="calculate()">
-                <h2>Click to roll:</h2>
-                <h2 id="workings"></h2>
-                <h1 id="result"></h1>
+                <div class="totals">
+                    <h2>Click to roll</h2>
+                    <h1 id="workings"></h1>
+                    <h1 id="result"></h1>
+                </div>
+
             </div>
         </div>
 
-        <div class="tray">
-            <h2>Click to add dice</h2>
-            <div class="reserve">
-                <div class="dice" onclick="addDice(4)">
-                    <h1>4</h1>
-                </div>
-                <div class="dice2" onclick="addDice(6)">
-                    <h1>6</h1>
-                </div>
-                <div class="dice" onclick="addDice(8)">
-                    <h1>8</h1>
-                </div>
-                <div class="dice2" onclick="addDice(12)">
-                    <h1>12</h1>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Javascript -->
-        <script src="diceroll.js"></script>
+    <!-- Javascript -->
+    <script src="diceroll.js"></script>
 
 </body>
 
