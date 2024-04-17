@@ -1,0 +1,56 @@
+ 
+body{
+    background-color: #393E46;
+    text-align: center;
+}
+    
+h1{
+    margin: 30px;
+    font-family: 'Lobster', cursive;
+    text-shadow: 5px 0 #232931;
+    font-size: 8rem;
+    color: #4ECCA3;
+}
+    
+p{
+    font-size: 2rem;
+    color: #4ECCA3;
+    font-family: 'Indie Flower', cursive;
+}
+.mainbox{
+    padding: 0 15%;
+}
+.return{
+    text-align: left;
+    font-size: 2rem;
+    color: #4ECCA3;
+    font-family: 'Indie Flower', cursive;
+}
+.title{
+    padding-top: 3%;
+}
+
+.dice-container{
+    padding: 2% 35%;
+}
+
+.dice-image{
+    width: 80%;
+    padding: 5%;
+}
+
+#winner{
+    font-size: 5rem;
+    color: #4ECCA3;
+    font-family: 'Lobster', cursive;
+    text-shadow: 5px 0 #232931;
+    padding: 2%;
+}
+.player{
+    color: #4ECCA3;
+    font-family: 'Indie Flower', cursive;
+}
+
+.result{
+    visibility: hidden;
+}
