@@ -297,7 +297,10 @@ body{
 .title3{
     font-size: 2rem;
     margin: 0;
- }
+}
+@media screen and (max-width: 700px) {
+
+}
 .btn2{
     color: rgb(232,232,232);
     border-color: rgb(5,122,240);
@@ -306,6 +309,21 @@ body{
 .btn2:hover{
     background-color: rgba(5,122,240, 0.2);
     border-color: rgb(5,122,240);
+}
+
+@media screen and (max-width: 700px) {
+    .main2{
+        padding: 10% 0% 5%;
+    }
+    .main3{
+        padding: 10% 0% 5%;
+    }
+    .main4{
+        padding: 10% 0% 5%;
+    }
+    .title3{
+        font-size: 1.5rem;
+    }
 }
 
 /* Footer */
@@ -325,6 +343,7 @@ body{
 .flaticonlink{
     font-size: 0.6rem;
     color: rgb(149,152,155);
+    visibility: hidden;
 }
 
   

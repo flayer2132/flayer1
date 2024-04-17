@@ -11,14 +11,13 @@ body {
   color: #FEF2BF;
 }
 
-
 .heading{
   margin: auto;
 }
 
 #title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
+  font-size: 3em;
   color: #FEF2BF;
 }
 
@@ -27,6 +26,15 @@ body {
   font-size: 1.5rem;
   color: #84d07d;
   visibility: hidden;
+}
+
+#level-title{
+  padding: 0;
+  margin: 1%;
+}
+#highscore{
+  padding: 0;
+  margin: 0;
 }
 
 .stats {
@@ -38,37 +46,31 @@ body {
 .game-box{
   display: flex;
   justify-content: center;
+  padding: 2%;
 }
 
 .simon-unit{
-  max-width: 540px;
+  width: 500px;
+  height: 500px;
   border-radius: 30px 30px 30px 30px;
   background-color: #181716;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  margin: 2%;
+  place-items: center;
+  border: 5px solid black;
 }
 
 .btn {
-  margin: 25px;
   display: inline-block;
+  aspect-ratio: 1 / 1;
   height: 200px;
-  width: 200px;
-  border: 10px solid black;
-  border-radius: 20%;
+  border: 5px solid black;
+  border-radius: 30px;
 }
 
 .btn:hover{
   cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .btn{
-    height: 150px;
-    width: 150px;
-    border: 5px solid black;
-  }
 }
 
 .footer{
@@ -77,7 +79,7 @@ body {
 
 .game-over {
   background-color:#3e4943;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .red {
@@ -99,4 +101,24 @@ body {
 .pressed {
   box-shadow: 0 0 20px lightgrey;
   background-color: lightgrey;
+}
+
+@media screen and (max-width: 700px){
+  #title{
+    font-size: 2rem;
+  }
+  .simon-unit{
+    width: auto;
+    height: auto;
+  }
+}
+@media screen and (max-width: 500px){
+  .btn{
+    height: 150px;
+  }
+}
+@media screen and (max-width: 330px){
+  .btn{
+    height: 100px;
+  }
 }

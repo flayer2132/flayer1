@@ -6,7 +6,9 @@ function addDice(num){
         var pos = (pool.length) + 1;
         pool.push(num);
         console.log(pool);
-        document.getElementById(pos).innerHTML = num;
+        // document.getElementById(pos).innerHTML = num;
+        document.getElementById(pos).src="images/d" + num + ".png";
+        document.getElementById(pos).alt="d" + num;
     }
 }
 
@@ -26,7 +28,7 @@ function removeDice(loc){
 
     console.log(pool);
 
-    //need to re-print all tray numbers in this function
+    //clear tray and re-print all tray numbers in this function
     clear();
     reprint();
 }
@@ -34,7 +36,9 @@ function removeDice(loc){
 //clears entire tray
 function clear(){
     for (let i = 1; i < 9; i ++) {
-        document.getElementById(i).innerHTML = "";
+        // document.getElementById(i).innerHTML = "";
+        document.getElementById(i).src="images/blank.png";
+        document.getElementById(i).alt="blank";
     }
 }
 
@@ -45,7 +49,9 @@ function reprint(){
     var mod = 0;
     for (let i = 0; i < len; i ++) {
         mod = i + 1;
-        document.getElementById(mod).innerHTML = pool[i];
+        // document.getElementById(mod).innerHTML = pool[i];
+        document.getElementById(mod).src="images/d" + pool[i] + ".png";
+        document.getElementById(mod).alt="d" + pool[i];
     }
 }
 
@@ -60,14 +66,13 @@ function calculate(){
         pool.forEach((die) => {
             x = Math.floor((Math.random() * die) + 1);
             roll = roll + x;
-            console.log("this roll" + x);
+            console.log("roll: " + x);
             res.push(x);
         });
         var workings = res.toString(); //show all results
         document.getElementById("workings").innerHTML = workings;
     }
 
-    console.log("total roll: " + roll);
-    console.log(total);
+    console.log("total: " + roll);
     document.getElementById("result").innerHTML = roll;
 }

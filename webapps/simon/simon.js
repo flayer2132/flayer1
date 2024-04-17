@@ -2,6 +2,7 @@
 var level = 0;
 var highScore = 0;
 var userClickedPattern = [];
+userChosenColour = "";
 var gamePattern = [];
 var buttonColours = ["red", "blue", "green", "yellow"]; 
 var started = false;
@@ -45,7 +46,7 @@ function playSequence(){
             }, 600);
         }
     setTimeout(function(){
-        enable = true;
+        enable = true; //re-enable button after pattern finishes playing
         newColour();
     }, wait);
 
@@ -88,8 +89,17 @@ function playSound(name){
 }
 
 //when any key is pressed start new game and reset everything to default
-    $(document).keypress(function(event){
-    if(started == false) {
+$(document).keypress(function(event){
+    if(started === false) {
+        console.log("starting new game");
+        newGame();
+    }
+});
+
+//also start via press title
+$("#title").on("click", function(){
+    if(started === false) {
+        console.log("starting new game");
         newGame();
     }
 });
@@ -97,7 +107,7 @@ function playSound(name){
 //when a button is clicked
 $(".btn").on("click", function(){
     userChosenColour = this.id;
-    if(started == true && enable == true) {
+    if(started === true && enable === true) { //check if game has started and is not playing pattern
         $("#"+userChosenColour).addClass("pressed");
         setTimeout(function(){
             $("#"+userChosenColour).removeClass("pressed");
@@ -116,7 +126,8 @@ function checkAnswer(currentLevel) {
     if(userClickedPattern[a] != gamePattern[a]) {
         console.log("wrong");
         started = false;
-        setTimeout(function () {
+        enable = false;
+        setTimeout(function () { //goto game over screen after short delay
           $("#title").text("Game Over!");
           playSound("wrong");
           $("body").addClass("game-over");
