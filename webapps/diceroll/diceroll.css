@@ -9,10 +9,11 @@ h1 {
 }
 h2 {
   margin: 0;
-  padding: 5% 0 2%;
+  padding: 3% 0 1%;
 }
-.reset {
-  padding-right: 3%;
+button {
+  padding: 0.3em;
+  margin-right: 2%;
 }
 .title {
   height: 10%;
@@ -33,13 +34,11 @@ h2 {
 @media (max-aspect-ratio: 4/3) {
   .main {
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
-  }
-  h2 {
-    padding: 1% 0 0;
+    grid-template-rows: 60% 40%;
   }
 }
 .dicebox {
+  height: 100%;
   background-color: green;
   display: flex;
   align-items: center;
@@ -47,7 +46,8 @@ h2 {
   flex-direction: column;
 }
 .active {
-  height: 40%;
+  max-height: 30%;
+  max-width: 100%;
   display: grid;
   aspect-ratio: 2 / 1;
   grid-template-columns: repeat(4, 1fr);
@@ -71,19 +71,14 @@ h2 {
 #result {
   font-size: 15vh;
 }
-.tray {
-  height: 20%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
 .reserve {
-  height: 100%;
+  max-height: 30%;
+  max-width: 100%;
   display: grid;
-  aspect-ratio: 6 / 1;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: (1, 1fr);
+  aspect-ratio: 3 / 2;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: (2, 1fr);
+  border: 2px solid;
 }
 .dice {
   background-color: aliceblue;
@@ -108,5 +103,24 @@ h2 {
   width: 100%;
   display: block;
   margin: auto;
-
+}
+@media (min-aspect-ratio: 4/3) {
+  .active {
+    max-height: 100%;
+    max-width: 60%;
+    display: grid;
+    aspect-ratio: 2 / 1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    border: 2px solid;
+  }
+  .reserve {
+    max-height: 100%;
+    max-width: 45%;
+    display: grid;
+    aspect-ratio: 3 / 2;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: (2, 1fr);
+    border: 2px solid;
+  }
 }
