@@ -1,52 +1,60 @@
 body {
   text-align: center;
   background-color: #011F3F;
+  height: 100vh;
+  margin: 0;
 }
 
-.return{
-  text-align: left;
-  margin: 1rem;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1rem;
-  color: #FEF2BF;
-}
-
-.heading{
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
   margin: auto;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-around;
+  padding: 5vh;
+}
+
+button{
+  font-size: 1.5em;
+  padding: 0.3em 1.2em;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-radius: 30px;
 }
 
 #title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3em;
+  font-size: 3.5em;
   color: #FEF2BF;
+  margin: 0;
 }
 
-#subtitle{
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.5rem;
-  color: #84d07d;
-  visibility: hidden;
-}
-
-#level-title{
+#level{
   padding: 0;
-  margin: 1%;
+  margin: 0;
+  font-weight: 100;
 }
 #highscore{
   padding: 0;
-  margin: 0;
+  margin: 1%;
+  font-weight: 100;
 }
 
 .stats {
   font-family: 'Press Start 2P', cursive;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   color: #FEF2BF;
 }
 
-.game-box{
-  display: flex;
-  justify-content: center;
-  padding: 2%;
+.game{
+  padding: 5vh;
 }
 
 .simon-unit{
@@ -74,7 +82,8 @@ body {
 }
 
 .footer{
-  margin: auto;
+  margin: 0;
+  padding: 5vh;
 }
 
 .game-over {
@@ -105,7 +114,7 @@ body {
 
 @media screen and (max-width: 700px){
   #title{
-    font-size: 2rem;
+    font-size: 3em;
   }
   .simon-unit{
     width: auto;

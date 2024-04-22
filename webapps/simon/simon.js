@@ -97,12 +97,12 @@ $(document).keypress(function(event){
 });
 
 //also start via press title
-$("#title").on("click", function(){
+function start(){
     if(started === false) {
         console.log("starting new game");
         newGame();
     }
-});
+}
 
 //when a button is clicked
 $(".btn").on("click", function(){
@@ -131,7 +131,6 @@ function checkAnswer(currentLevel) {
           $("#title").text("Game Over!");
           playSound("wrong");
           $("body").addClass("game-over");
-          $("#subtitle").css("visibility", "visible");
           if(level > highScore){
             highScore = level - 1;
             $("#highscore").text("Best:" + " " + highScore);
@@ -154,14 +153,13 @@ function checkAnswer(currentLevel) {
 //resets variables and picks a new colour after a short delay
 function newGame(){
     level = 1;
-    $("#level-title").text("Level:" + " " + level); 
+    $("#level").text("Level:" + " " + level); 
     gamePattern = [];
     userClickedPattern = [];
     started = true;
     enable = true;
     setTimeout(function(){
         $("body").removeClass("game-over");
-        $("#subtitle").css("visibility", "hidden");
         $("#title").text("Simon");
         newColour();
     }, 500);
