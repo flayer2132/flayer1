@@ -12,8 +12,9 @@ h2 {
   padding: 3% 0 1%;
 }
 button {
-  padding: 0.3em;
+  padding: 0.3em 1em;
   margin-right: 2%;
+  font-size: 1em;
 }
 .title {
   height: 10%;
@@ -54,9 +55,6 @@ button {
   grid-template-rows: repeat(2, 1fr);
   border: 2px solid;
 }
-.active:hover {
-  cursor: pointer;
-}
 .results {
   background-color: beige;
   text-align: center;
@@ -86,23 +84,20 @@ button {
   align-items: center;
   justify-content: center;
 }
-.dice:hover {
-  cursor: pointer;
-}
 .dice2 {
   background-color: #7d945d;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.dice2:hover {
-  cursor: pointer;
-}
 .dimage{
   height: auto;
   width: 100%;
   display: block;
   margin: auto;
+}
+.dimage:hover {
+  cursor: pointer;
 }
 @media (min-aspect-ratio: 4/3) {
   .active {

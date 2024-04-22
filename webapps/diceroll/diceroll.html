@@ -9,7 +9,11 @@
   </head>
 
   <body>
-    <!-- TODO1. fix image scaling (dice images reserving space pushing body down past viewport height)-->
+    <!-- REFACTOR. Active dice infinite scalability -  -->
+    <!-- 1 active box for each dice type (6 boxes total) -->
+    <!-- clicking a dice type adds 1 to the total for that type -->
+    <!-- use image text in bottom right corner for die count, for each die -->
+    <!-- ** this allows merging of acttive and reserver dice pools for a cleaner interface ** -->
 
     <div class="title">
       <button onclick="window.location.href='diceroll.html';">Reset</button>
