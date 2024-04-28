@@ -15,6 +15,9 @@
 
 </head>
 
+<!-- ISSUE: elements extend past vertical viewport at landscape low resolution -->
+<!-- FIX: dynamically scale size of simon-unit to fit into viewport at any resolution -->
+
 <body>
 
   <div class="main">
@@ -25,7 +28,6 @@
 
     <div class="buttons">
       <button onclick="start()">Start</button>
-      <button onclick="window.location.href='simon.html';">Reset</button>
     </div>
   
     <div class="game">

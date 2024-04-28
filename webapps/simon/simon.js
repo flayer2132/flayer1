@@ -35,16 +35,18 @@ function playSequence(){
     var i = 0;
 
     playLoop();
+    
     function playLoop(){
-            var t = setTimeout(function(){
-                $("#"+currentSequence[i]).fadeOut(150).fadeIn(150);
-                playSound(currentSequence[i]);
-                i++;
-                if(i < numberToPlay){
-                    playLoop();
-                }
-            }, 600);
-        }
+        var t = setTimeout(function(){
+            $("#"+currentSequence[i]).fadeOut(150).fadeIn(150);
+            playSound(currentSequence[i]);
+            i++;
+            if(i < numberToPlay){
+                playLoop();
+            }
+        }, 600);
+    }
+
     setTimeout(function(){
         enable = true; //re-enable button after pattern finishes playing
         newColour();
@@ -131,9 +133,13 @@ function checkAnswer(currentLevel) {
           $("#title").text("Game Over!");
           playSound("wrong");
           $("body").addClass("game-over");
+          $(".simon-unit").addClass("game-over-fade");
           if(level > highScore){
             highScore = level - 1;
             $("#highscore").text("Best:" + " " + highScore);
+            setTimeout(function () { //add effect to start button
+
+            }, 200);
           }
         }, 200);
     }
@@ -150,7 +156,7 @@ function checkAnswer(currentLevel) {
     } 
 }
 
-//resets variables and picks a new colour after a short delay
+//resets variables and styling then picks a new colour after a short delay
 function newGame(){
     level = 1;
     $("#level").text("Level:" + " " + level); 
@@ -158,9 +164,11 @@ function newGame(){
     userClickedPattern = [];
     started = true;
     enable = true;
+    $("body").removeClass("game-over");
+    $(".simon-unit").removeClass("game-over-fade");
+    $("#title").text("Simon");
     setTimeout(function(){
-        $("body").removeClass("game-over");
-        $("#title").text("Simon");
         newColour();
-    }, 500);
+    }, 200);
+    
 }

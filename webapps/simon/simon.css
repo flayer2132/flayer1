@@ -19,6 +19,7 @@ body {
   display: flex;
   justify-content: space-around;
   padding: 5vh;
+  padding-bottom: 2.5vh;
 }
 
 button{
@@ -88,7 +89,14 @@ button{
 
 .game-over {
   background-color:#3e4943;
-  opacity: 0.5;
+}
+
+.game-over-fade {
+  opacity: 0.3;
+}
+
+.game-started{
+  color: #3e4943;
 }
 
 .red {
