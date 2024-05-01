@@ -28,7 +28,7 @@ function nextSequence(){
 function playSequence(){
     enable = false; //disable button clicking for duration of sequence
     level++;
-    $("#level-title").text("Level:" + " " + level); //update level display
+    $("#level").text("Level:" + " " + level); //update level display
     var currentSequence = gamePattern;
     var numberToPlay = gamePattern.length;
     var wait = (numberToPlay * 600) + 600; //length of gamePattern + 1
