@@ -131,7 +131,7 @@ footer{
   border-radius: 2px;
   color: white;
   padding: 1em;
-  width: 25%;
+  width: 30%;
   background-color: #228B22;
   border: 2px solid #228B22;
 }
@@ -146,7 +146,6 @@ footer{
 
   .heading {
     width: 360px;
-    
   }
   .board{
     width: 360px;
