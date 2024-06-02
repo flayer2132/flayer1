@@ -853,5 +853,7 @@ $(".back").on("click", function(){
 
 //clear all and run a new game when new game is pressed
 $(".newgame").on("click", function(){
-  clearAll();
+  if(confirm("Start a new game?")){
+    clearAll();
+  };
 });
