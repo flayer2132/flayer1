@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sudoku</title>
+  <title>Sudoku Solver</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="sudoku.css">
@@ -19,14 +19,14 @@
 
 <body>
 
-    <div>
-        <button class="current">Play Sudoku</button>
-        <button class="next solver">Solve Sudoku</button>
-    </div>
+  <div>
+    <button class="next play">Play Sudoku</button>
+    <button class="current">Solve Sudoku</button>
+  </div>
 
   <div class="heading">
 
-    <h1 class="title">Sudoku Unlimited</h1>
+    <h1 class="title">Sudoku Solver</h1>
 
   </div>
 
@@ -152,23 +152,17 @@
 
     <div class="buttons">
       <button class="erase"><img src="images/eraser.png" class="eraser">Erase</button>
-      <button class="newgame">New Game</button>
+      <button class="solve">Solve!</button>
     </div>
 
   </div>
 
   <div class="howto">
     <div>
-      <h3>How to Play:</h3>
-      <p>Sudoku is played on a grid of 9 x 9 spaces. Within the rows and columns are 9 
-        “squares” (made up of 3 x 3 spaces). Each row, column and square (9 spaces each) 
-        needs to be filled out with the numbers 1-9, without repeating any numbers within 
-        the row, column or square.</p>
-        <ol>
-          <li>Press the New Game button to begin.</li>
-          <li>Click (tap) on a grid square to select it, then click (tap) a number to fill in that square.</li>
-          <li>Fill in all the squares to win.</li>
-        </ol>
+      <h3>How to use Solver:</h3>
+      <p>1. Click (tap) on a grid square to select it, then click (tap) a number to fill in that square.</p>
+      <p>2. Click (tap) Solve! and the solver will fill in any remaining empty squares.</p>
+      
     </div>
   </div>
 

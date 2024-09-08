@@ -1,6 +1,5 @@
 body{
   text-align: center;
-  height: 100vh;
   margin: 0;
   display: flex;
   align-items: center;
@@ -11,10 +10,16 @@ body{
   margin: 0;
   font-family: "Permanent Marker", cursive;
 }
+.title2{
+  margin: 0;
+  font-family: "Permanent Marker", cursive;
+  color: red;
+  transform: translate(-1rem) rotate(-5deg);
+
+}
 h1{
   font-size: 3em;
 }
-
 
 
 /* Title */
@@ -137,8 +142,59 @@ footer{
 }
 .newgame:hover {
   background-color: #228B2290;
-  border-color: #228B2290;
 }
+.solve{
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 1em;
+  width: 30%;
+  background-color: #ff3333;
+  border: 2px solid #ff3333;
+}
+.solve:hover {
+  background-color: #ff333390;
+}
+.solver{
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 1em;
+  width: 40%;
+  background-color: #ff3333;
+  border: 2px solid #ff3333;
+}
+.solver:hover {
+  background-color: #ff333390;
+}
+.play{
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 1em;
+  width: 40%;
+  background-color: #228B22;
+  border: 2px solid #228B22;
+}
+.play:hover {
+  background-color: #228B2290;
+}
+.current{
+  border: none;
+  border-radius: 2px;
+  color: gray;
+  padding: 1em;
+  width: 40%;
+  background-color: #C0C0C0;
+  border: 2px solid #C0C0C0;
+}
+
+/* How To Play */
+.howto{
+  text-align: left;
+  width: 450px;
+}
+
 
 
 /* Media */
@@ -171,6 +227,9 @@ footer{
   }
   .eraser{
     height: 20px;
+  }
+  .howto{
+    width: 360px;
   }
 
 }

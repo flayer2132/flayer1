@@ -26,18 +26,13 @@ let errors = 0;
 
 window.onload = clearAll();
 
-//-------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
 
-// TODO: add confirm prompt to solve and newgame
-// TODO: add solve() functionality
-
-// Mbug: does not check pre-generated rows for victory 
-// can generate full row of clues and therfore vicory never possible
-
-//mBUG: can generate impossible f columns (~5%) will restart generation on detection
+//mBUG: can generate impossible f columns (~5% chance) 
+  // will restart generation on detection
 //mBUG: does not update existing highlighted numbers if they become legal
 
-//-------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
 
 
 //check if entire column is correct
@@ -53,9 +48,11 @@ function winV(set){
     total = total + element;
   });
 
-  //check win cond for set
-  //add set to win if not there
+//if set equals win condition (total == 45) add set to win
+//otherwise do nothing
   if (total == 45){
+    //check win cond for set
+    //add set to win if not there
     if(win.includes(set)){
 
     } else {
@@ -97,24 +94,21 @@ function victory(){
   };
 };
 
-
-//cylces though all cells in grid
-//checks if cell is empty
+//solving for a
 function solve(){
-  //cycle though each set a - i
-    for (let c = 0; c < 9; c++) {
-      let set = chars[c];
-      let fullSet = "set" + set;
-      //cycle though each pos 0 - 8
-      for(i = 0; i < 9; i++){
-        let check = grid[fullSet][i];
-        //check if number > 0
-        if (check == 0){
-          //do a thing
-        };
-      };
 
-    };
+  //snapshot grid
+
+
+  //assign clues to each set
+  for (let i = 0; i < 9; i++) {
+    let set = chars[(i)];
+    console.log("attempting to solve Sudoku... set " + set); 
+    assignClues(set);
+  };
+
+  console.log("Sudoku has been Solved!");
+
 };
 
 
@@ -153,8 +147,6 @@ function clearAll(){
   locked = [];
   win = [];
 
-  cycleGrid();
-
 };
 
 
@@ -165,18 +157,6 @@ function cycleGrid(){
   let error = false;
   let fails = 0;
 
-  let backup = {
-    seta: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    setb: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    setc: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    setd: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    sete: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    setf: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    setg: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    seth: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    seti: [0, 0, 0, 0, 0, 0, 0, 0, 0]
-  };
-
   for (let i = 1; i < 10; i++) {
     let set = chars[(i - 1)];
     console.log("assigning set " + set);
@@ -184,7 +164,7 @@ function cycleGrid(){
     //assign clues to each set, returning true on fail
     error = assignClues(set);
 
-    //if cannot assign all 9 postions in set, re-assign entire grid
+    //if cannot assign all 9 postions in a given set, re-assign entire grid
     if (error == true){
       fails++;
       //start cycle again
@@ -202,27 +182,62 @@ function cycleGrid(){
         seti: [0, 0, 0, 0, 0, 0, 0, 0, 0]
       };
       console.log("** failed to generate set " + set + " -- re-generating entire grid **");
+
+      //unlock entire grid
+      for (let i = 1; i < 10; i++) {
+        let set = chars[(i - 1)];
+      clearColumn(set);
+      };
     };
   };
 
   console.log("ASSIGNMENT COMPLETE " + "generation restarts: " + fails);
+  console.log(locked.length + " numbers assigned.")
 
   scrubGrid();
+
+  console.log(locked.length + " clues given.")
+
+  //check all rows and columns for win condition
+
+  //run winV for a to i
+  for (let i = 1; i < 10; i++) {
+    let set = chars[(i - 1)];
+
+    console.log("checking win cond: " + set);
+
+    winV(set);
+
+  };
+
+  //run winH for 0 to 8
+  for (let n = 0; n < 9; n++) {
+    let pos = n;
+
+    console.log("checking win cond: " + pos);
+
+    winH(pos);
+
+  };
+
+  victory();
   
 };
 
 
-//clear numbers from grid
+//clear numbers and styles from html grid
 function scrubGrid(){
 
   //each set from a though i
   for (let i = 0; i < 9; i++) {
     let set = chars[i];
 
-    //random number of empty cells
-    let empty = Math.floor((Math.random() * 2)) + 4;
+    //random mumber between 0 and 9
+    let clues = Math.floor(Math.random() * 10);
+
+    let empty = clues;
     
-    //number of times equal to empty
+    //number of times equal to empty, can duplicate
     for (let i = 0; i < empty; i++) {
       //random pos
       let pos = Math.floor((Math.random() * 9));
@@ -267,7 +282,7 @@ function slice(p, array){
 
 //check given set 
 //find unfilled positions
-//return a new array of positions where filled pos in checked set are removed
+//return a new array of empty positions
 function checkSet(set){
 
   //find correct set and create local array from set
@@ -296,17 +311,59 @@ function checkSet(set){
 };
 
 
+//look though set and find used numbers (from 1-9)
+//return array with used numbers
+function excludeNum(set){
+
+  let setName = "set" + set;
+  let testSet = grid[setName];
+
+  let exclude = [];
+
+  testSet.forEach((element) => {
+    //if position is filled, add number to new array
+    if(element > 0){
+      exclude.push(element);
+    };
+
+  });
+
+  console.log("numbers to exclude : " + exclude);
+  return exclude;
+
+};
+
+
 //assign numbers for the given set (set)
+//only assignes clues to free postions in set
 function assignClues(set){
 
   //check existing set and assign to free
   //skip any pos in free that already contains a number > 0
   let free = checkSet(set);
+  let bFree = free;
 
+  //check existing set and get array of filled numbers
+  //convert array of clues into index (-1)
+  let excl = excludeNum(set);
   let pool = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  //slice out used from pool
+  excl.forEach((element) => {
+    //find element in pool
+    let b = pool.indexOf(element);
+    // console.log("indexof found " + b);
+    pool = slice(b, pool);
+    // console.log("new pool " + pool);
+  });
+
+  let bPool = pool;
+
   let backup = [];
+  let save = [];
 
   let i = 0;
+  let g = pool.length;
   let cycle = 0;
 
   let x = false;
@@ -315,6 +372,16 @@ function assignClues(set){
   let cut = [];
   let num = 0;
   let select = 0;
+
+  //get current set word
+  let currSet = 'set' + set;
+
+  //create a copy of current set for later
+  grid[currSet].forEach((element) => {
+    save.push(element);
+  });
+
+  // console.log("current grid set is " + currSet + " equal to: " + save);
 
   function newPosition(){
 
@@ -332,9 +399,12 @@ function assignClues(set){
 
   newPosition();
 
-  //randomly assign a number to cells in current column for the given number of clues (clues) 
+  //randomly assign a number to cells in current column
   //track number using counter (i)
-  while (i < 9){
+  while (i < g){
+
+    // console.log("iteration: " + i);
+    // console.log("limit: " + g);
 
     //select a random unused number to insert into pos
     select = Math.floor((Math.random() * pool.length));
@@ -360,23 +430,40 @@ function assignClues(set){
       // console.log(pool);
       // console.log(backup);
 
-      //impossible generaton detector
+      //infinite loop detector
       //break generation for current set if cannot assign after number of cycles
-      if(cycle > 30){
+      //not expected to execute, is a catch all to prevent infinite loops
+      if(cycle > 100){
         console.log("unable to assign set " + set);
         return true;
       };
 
-      //if no numbers remain that fit into selected position, coloumn assignment must be invalid.
-      //erase column, reset counter and re-assign entire column
+      // if(pool.length == 0){
+      //   console.log("assignment invalid - erasing set and trying again");
+      //   eraseColumn(set);
+      //   i = 0;
+      //   cycle++;
+      //   backup = [];
+      //   pool = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      //   free = checkSet(set);
+      //   newPosition();
+      // };
+
+      //if no numbers remain in pool that fit, column must be invalid
+      //reset column and try again
       if(pool.length == 0){
-        console.log("assignment invalid - erasing set");
-        eraseColumn(set);
+        console.log("assignment of set" + set + " invalid - erasing set and trying again");
+        //empty grid
+        grid[currSet] = [];
+        //restore grid
+        save.forEach((element) => grid[currSet].push(element));
+        // clearColumn(set);
         i = 0;
         cycle++;
         backup = [];
-        pool = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        free = checkSet(set);
+        pool = bPool;
+        free = bFree;
+        clearColumn(set);
         newPosition();
       };
 
@@ -408,8 +495,6 @@ function assignClues(set){
         newPosition();
       };
 
-      // console.log(pool);
-
     };
 
   };
@@ -418,13 +503,10 @@ function assignClues(set){
 
 };
 
-//set all numbers to 0 for given column (set) directly
+
 //clears text in the column in game grid
 //unlocks all cells for this column
-function eraseColumn(set){
-
-  let find = "set" + set;
-  grid[find] = [0, 0, 0, 0, 0, 0, 0, 0, 0]; 
+function clearColumn(set){
 
   //clear text in grid
   for(i = 1; i < 10; i++){
@@ -855,5 +937,29 @@ $(".back").on("click", function(){
 $(".newgame").on("click", function(){
   if(confirm("Start a new game?")){
     clearAll();
+    cycleGrid();
   };
 });
+
+//clear entire grid when solver is clicked
+$(".solve").on("click", function(){
+  if(confirm("Solve this sudoku grid?")){
+    solve();
+  };
+});
+
+//go to solver page when solve is clicked
+$(".solver").on("click", function(){
+  if(confirm("Go to Solver?")){
+    window.location.href = "sudokusolver.html";
+  };
+});
+
+//go to sudoku page when play is clicked
+$(".play").on("click", function(){
+  if(confirm("Play Sudoku?")){
+    window.location.href = "sudoku.html";
+  };
+});
+
+
